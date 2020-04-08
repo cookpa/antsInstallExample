@@ -108,3 +108,13 @@ echo "Installation complete, running ${antsRegExe}"
 
 ${antsRegExe} --version
 
+echo "
+Binaries and scripts are located in 
+
+  $installDir
+
+Please see post installation instructions at 
+
+  $antsBuildInstructions
+
+"
