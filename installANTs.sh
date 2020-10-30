@@ -3,7 +3,7 @@
 antsBuildInstructions="https://github.com/ANTsX/ANTs/wiki/Compiling-ANTs-on-Linux-and-Mac-OS"
 
 echo "
-This script will download ANTs, build and install under the current directory
+This script will download ANTs, build and install under the current directory. 
 
 Developer tools including compilers, git and cmake must be installed
 
@@ -37,9 +37,11 @@ mkdir $buildDir $installDir
 
 cd $buildDir
 
+# USE_VTK must be turned on to build antsSurf
 cmake \
     -DCMAKE_INSTALL_PREFIX=$installDir \
     -DBUILD_SHARED_LIBS=OFF \
+    -DUSE_VTK=OFF \
     -DSuperBuild_ANTS_USE_GIT_PROTOCOL=OFF \
     -DBUILD_TESTING=OFF \
     -DRUN_LONG_TESTS=OFF \
