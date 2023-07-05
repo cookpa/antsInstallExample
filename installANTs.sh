@@ -101,6 +101,10 @@ if [[ ! -f ${antsRegExe} ]]; then
   ${buildDir}/CMakeFiles/CMakeError.log
   ${buildDir}/CMakeFiles/CMakeOutput.log
 
+  and mention that you used this script with build command:
+
+    make -j $buildThreads
+
 "
   exit 1
 fi
