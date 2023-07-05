@@ -2,19 +2,25 @@
 
 antsBuildInstructions="https://github.com/ANTsX/ANTs/wiki/Compiling-ANTs-on-Linux-and-Mac-OS"
 
+# Number of threads used by make
+buildThreads=4
+
 echo "
 This script will download ANTs, build and install under the current directory. 
 
-Developer tools including compilers, git and cmake must be installed
+Developer tools including compilers, git and cmake must be installed.
+
+This script will attempt to build with $buildThreads threads. If your processor, RAM
+or swap space are limited, try building with a single thread.
 
 If you encounter errors, please see the installation instructions at
 
   $antsBuildInstructions
 
-Build will proceed in 5 seconds
+Build will proceed in 8 seconds
 "
 
-sleep 5
+sleep 8
 
 workingDir=${PWD}
 
@@ -25,9 +31,6 @@ git clone https://github.com/ANTsX/ANTs.git
 # cd ANTs
 # git checkout v2.3.1
 # cd -
-
-# Number of threads used by make
-buildThreads=4
 
 # Where to build, should be an empty directory
 buildDir=${workingDir}/build
