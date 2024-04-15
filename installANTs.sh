@@ -8,7 +8,7 @@ buildThreads=4
 echo "
 This script will download ANTs, build and install under the current directory. 
 
-Developer tools including compilers, git and cmake must be installed.
+Developer tools including compilers, git and cmake must be installed. 
 
 This script will attempt to build with $buildThreads threads. If your processor, RAM
 or swap space are limited, try building with a single thread.
@@ -41,6 +41,11 @@ mkdir $buildDir $installDir
 cd $buildDir
 
 # USE_VTK must be turned on to build antsSurf
+#
+# CMake may incorrectly detect the CPU architecture on Apple Silicon machines
+# This is reported in the logs as "Arch detected: 'x86_64'"
+# If you see this and the subsequent error "unknown target CPU", 
+# add -DCMAKE_OSX_ARCHITECTURES=arm64 to the call below
 cmake \
     -DCMAKE_INSTALL_PREFIX=$installDir \
     -DBUILD_SHARED_LIBS=OFF \
